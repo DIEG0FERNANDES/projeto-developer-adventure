@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player1 : MonoBehaviour
 {
 
-    public float Speed;
+    public float Speed = 4f;
     public float JumpForce;
   
 
@@ -19,15 +19,27 @@ public class Player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+       
         Jump();
     }
 
-    void Move()
+    private void FixedUpdate()
     {
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-        transform.position += movement * Time.deltaTime * Speed;
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            rig.velocity = new Vector2(Speed, 0);
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            rig.velocity = new Vector2(-Speed, 0);
+        }
+        else
+        {
+            rig.velocity = new Vector2(0, 0);
+        }
+
     }
+
 
     void Jump()
     {
