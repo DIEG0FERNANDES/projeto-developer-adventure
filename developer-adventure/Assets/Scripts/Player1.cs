@@ -19,26 +19,35 @@ public class Player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            Vector3 position = this.transform.position;
+            position.x--;
+            this.transform.position = position;
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            Vector3 position = this.transform.position;
+            position.x++;
+            this.transform.position = position;
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Vector3 position = this.transform.position;
+            position.y++;
+            this.transform.position = position;
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Vector3 position = this.transform.position;
+            position.y--;
+            this.transform.position = position;
+        }
+
         Jump();
     }
 
-    private void FixedUpdate()
-    {
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            rig.velocity = new Vector2(Speed, 0);
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            rig.velocity = new Vector2(-Speed, 0);
-        }
-        else
-        {
-            rig.velocity = new Vector2(0, 0);
-        }
-
-    }
+   
 
 
     void Jump()
