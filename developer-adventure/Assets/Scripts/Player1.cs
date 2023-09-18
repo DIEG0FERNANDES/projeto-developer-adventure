@@ -34,9 +34,9 @@ public class Player1 : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            rig.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
+            rig.velocity = new Vector2(0,JumpForce);
         }
     }
     
