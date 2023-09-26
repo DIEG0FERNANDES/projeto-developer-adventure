@@ -5,8 +5,10 @@ using UnityEngine;
 public class Player1 : MonoBehaviour
 {
     
-    public float Speed = 4f;
+    public float Speed = 2.5f;
     public float JumpForce;
+    public float Force =5;
+    public bool isGround;
   
 
     public Rigidbody2D rig;
@@ -38,10 +40,18 @@ public class Player1 : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGround == true)
         {
-            rig.velocity = new Vector2(0,JumpForce);
+            rig.AddForce(transform.up * Force);
+            isGround = false;
         }
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "ground")
+        {
+            isGround = true;
+        }
+    }
 }

@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 42251018}
   m_Layer: 0
   m_Name: Tilemap_chao
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63276,8 +63276,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59b82790f976c24a983628147df296b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 3.5
-  JumpForce: 5
+  Speed: 2
+  JumpForce: 0
+  Force: 300
+  isGround: 0
   rig: {fileID: 1197766780}
 --- !u!50 &1197766780
 Rigidbody2D:
