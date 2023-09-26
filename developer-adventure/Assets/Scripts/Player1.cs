@@ -10,9 +10,11 @@ public class Player1 : MonoBehaviour
   
 
     public Rigidbody2D rig;
+    private SpriteRenderer sr;
     // Start is called before the first frame update
     void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
         rig = GetComponent<Rigidbody2D>();
     }
 
@@ -26,8 +28,10 @@ public class Player1 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow)){
             rig.velocity = new Vector2(Speed, 0);
+            sr.flipX = false;
         }else if (Input.GetKey(KeyCode.LeftArrow)) {
             rig.velocity = new Vector2(-Speed, 0);
+            sr.flipX = true;
         }
     }
 
