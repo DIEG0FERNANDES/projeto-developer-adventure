@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player1 : MonoBehaviour
 {
     
-    public float Speed = 2.5f;
-    public float JumpForce;
+    public float Speed = 1f;
+    
     public float Force =5;
     public bool isGround;
   
@@ -29,10 +29,10 @@ public class Player1 : MonoBehaviour
     {
 
         if (Input.GetKey(KeyCode.RightArrow)){
-            rig.velocity = new Vector2(Speed, 0);
+            transform.position += new Vector3(1 * Speed * Time.deltaTime, 0, 0);
             sr.flipX = false;
         }else if (Input.GetKey(KeyCode.LeftArrow)) {
-            rig.velocity = new Vector2(-Speed, 0);
+            transform.position += new Vector3(-1 * Speed * Time.deltaTime, 0, 0);
             sr.flipX = true;
         }
     }

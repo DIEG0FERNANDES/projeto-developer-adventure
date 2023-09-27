@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 42251018}
   m_Layer: 0
   m_Name: Tilemap_chao
-  m_TagString: ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63277,8 +63277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2
-  JumpForce: 0
-  Force: 300
+  Force: 250
   isGround: 0
   rig: {fileID: 1197766780}
 --- !u!50 &1197766780
@@ -63397,7 +63396,7 @@ GameObject:
   - component: {fileID: 1658985273}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
