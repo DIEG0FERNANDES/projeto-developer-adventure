@@ -64123,10 +64123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59b82790f976c24a983628147df296b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2
-  Force: 250
   isGround: 0
-  rig: {fileID: 1730110110}
 --- !u!50 &1730110110
 Rigidbody2D:
   serializedVersion: 4
@@ -64155,7 +64152,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730110106}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
