@@ -25,8 +25,8 @@ public class Player1 : MonoBehaviour
         rig = gameObject.GetComponent<Rigidbody2D>();
         animate = gameObject.GetComponent<Animator>();
 
-        moveSpeed = 2f; // Velocidade definida por padrão para animação Walk
-        jumpForce = 50f; // Altura definida por padrão para animação jump
+        moveSpeed = 2f; // Velocidade definida por padrï¿½o para animaï¿½ï¿½o Walk
+        jumpForce = 50f; // Altura definida por padrï¿½o para animaï¿½ï¿½o jump
 
     }
 
@@ -34,11 +34,11 @@ public class Player1 : MonoBehaviour
     void Update()
     {
         Jump();
-        // moveLeft = Input.GetKey(KeyCode.LeftArrow); implementação antiga
-        // moveRight = Input.GetKey(KeyCode.RightArrow); implementação antiga
-        moveHorizontal = Input.GetAxisRaw("Horizontal"); //método de importação teclas teclados,joystick etc..
+        // moveLeft = Input.GetKey(KeyCode.LeftArrow); implementaÃ§ao antiga
+        // moveRight = Input.GetKey(KeyCode.RightArrow); implementaÃ§Ã£o antiga
+        moveHorizontal = Input.GetAxisRaw("Horizontal"); //mÃ©todo de importaÃ§Ã£o teclas teclados,joystick etc..
 
-        animate.SetFloat("Speed", Mathf.Abs(moveHorizontal));// serve para ativar a animação walk
+        animate.SetFloat("Speed", Mathf.Abs(moveHorizontal));// serve para ativar a animaÃ§Ã£o walk
     }
     private void FixedUpdate()
     {
@@ -50,7 +50,7 @@ public class Player1 : MonoBehaviour
         else if (moveLeft) {
             transform.position += new Vector3(-1 * moveSpeed * Time.deltaTime, 0, 0);
             sr.flipX = true;
-        }*/ //implementação de movimento antigo
+        }*/ //implementaï¿½ï¿½o de movimento antigo
 
         rig.velocity = new Vector2(moveHorizontal * moveSpeed, rig.velocity.y);
 
@@ -63,8 +63,6 @@ public class Player1 : MonoBehaviour
             sr.flipX = true;
         }
     }
-
-  
 
     void Jump()
     {
