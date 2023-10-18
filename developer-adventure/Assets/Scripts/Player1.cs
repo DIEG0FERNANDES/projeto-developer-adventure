@@ -9,6 +9,7 @@ public class Player1 : MonoBehaviour
     private float moveSpeed; // Deixei privado para ficar mais facil deu mexer no Script BY:Diego
     private float jumpForce; // Deixei este privado tambem pelo mesmo motivo
     public bool isGround;
+    
 
     private Animator animate;
 
