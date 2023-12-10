@@ -1,0 +1,4 @@
+repository "projeto-developer-adventure@Shandowdark@cloud"
+  path "/"
+    br "/main"
+    co "/main"
