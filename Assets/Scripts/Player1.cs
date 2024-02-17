@@ -9,7 +9,17 @@ public class Player1 : MonoBehaviour
     private float moveSpeed; // Deixei privado para ficar mais facil deu mexer no Script BY:Diego
     private float jumpForce; // Deixei este privado tambem pelo mesmo motivo
     public bool isGround;
-    
+    public float Speed;
+    public float RunSpeed;
+    public float NormalSpeed;
+    public bool IsRunning;
+    private Vector2 crouchingSize;
+    private Vector2 standingSize;
+    private Vector2 crouchingOffset;
+    private new BoxCollider2D collider;
+    private Sprite crouching;
+    private Sprite standing;
+    private SpriteRenderer sprite;
 
     private Animator animate;
 
@@ -25,6 +35,8 @@ public class Player1 : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         rig = gameObject.GetComponent<Rigidbody2D>();
         animate = gameObject.GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+        collider = GetComponent<BoxCollider2D>();
 
         moveSpeed = 2f; // Velocidade definida por padr�o para anima��o Walk
         jumpForce = 50f; // Altura definida por padr�o para anima��o jump
@@ -63,6 +75,36 @@ public class Player1 : MonoBehaviour
         {
             sr.flipX = true;
         }
+        if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftShift)) {
+            IsRunning = true;
+            Speed = RunSpeed;
+            print("Running");
+        }
+        else
+        {
+            IsRunning = false;
+            Speed = NormalSpeed;
+            print("Not Running");
+        }
+        crouchingSize = new Vector2(1, 0.5f);
+        crouchingOffset = new Vector2(0, -0.25f);
+        standingSize = new Vector2(1, 1);
+        crouchingOffset = Vector2.zero;
+
+        //Start crouch
+        if (Input.GetButtonDown("Crouch"))
+        {
+            sprite.sprite = crouching;
+            collider.size = crouchingSize;
+        }
+
+        //Stop crouch
+        if (Input.GetButtonUp("Crouch"))
+        {
+            sprite.sprite = standing;
+            collider.size = standingSize;
+
+        }
     }
 
     void Jump()
@@ -81,4 +123,5 @@ public class Player1 : MonoBehaviour
             isGround = true;
         }
     }
+    
 }
