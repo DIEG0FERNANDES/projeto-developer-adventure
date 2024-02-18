@@ -1,127 +1,122 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player1 : MonoBehaviour
 {
-    
-    private float moveSpeed; // Deixei privado para ficar mais facil deu mexer no Script BY:Diego
-    private float jumpForce; // Deixei este privado tambem pelo mesmo motivo
-    public bool isGround;
-    public float Speed;
-    public float RunSpeed;
-    public float NormalSpeed;
-    public bool IsRunning;
-    private Vector2 crouchingSize;
-    private Vector2 standingSize;
-    private Vector2 crouchingOffset;
-    private new BoxCollider2D collider;
-    private Sprite crouching;
-    private Sprite standing;
-    private SpriteRenderer sprite;
+    private Rigidbody2D rigidBody2D;
+    private CircleCollider2D circleCollider2D;
+    [SerializeField] private LayerMask groundLayer;
+    [Range(0, 10f)] [SerializeField] private float speed = 0f;
 
-    private Animator animate;
+    float horizontal = 0f;
+    float lastJumpY = 0f;
 
-    private bool moveLeft;
-    private bool moveRight;
-    private float moveHorizontal;
+    private bool isFacingRight = true, jump = false,
+                 jumpHeld = false, crouchHeld = false,
+                 isUnderPlatform = false;
 
-    private Rigidbody2D rig;
-    private SpriteRenderer sr;
-    // Start is called before the first frame update
+    [Range(0, 5f)] [SerializeField] private float fallLongMult = 0.85f;
+    [Range(0, 5f)] [SerializeField] private float fallShortMult = 1.55f;
+
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
-        rig = gameObject.GetComponent<Rigidbody2D>();
-        animate = gameObject.GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
-        collider = GetComponent<BoxCollider2D>();
-
-        moveSpeed = 2f; // Velocidade definida por padr�o para anima��o Walk
-        jumpForce = 50f; // Altura definida por padr�o para anima��o jump
-
+        rigidBody2D = GetComponent<Rigidbody2D>();
+        circleCollider2D = GetComponent<CircleCollider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Jump();
-        // moveLeft = Input.GetKey(KeyCode.LeftArrow); implementaçao antiga
-        // moveRight = Input.GetKey(KeyCode.RightArrow); implementação antiga
-        moveHorizontal = Input.GetAxisRaw("Horizontal"); //método de importação teclas teclados,joystick etc..
+        horizontal = Input.GetAxisRaw("Horizontal") * speed;
 
-        animate.SetFloat("Speed", Mathf.Abs(moveHorizontal));// serve para ativar a animação walk
+        if (isOnGround() && horizontal.Equals(0) && (crouchHeld || isUnderPlatform))
+            GetComponent<Animator>().Play("CharacterCrouchIdle");
+        else if (isOnGround() && (horizontal > 0 || horizontal < 0) && (crouchHeld || isUnderPlatform))
+            GetComponent<Animator>().Play("CharacterCrouch");
+        else if (isOnGround() && horizontal.Equals(0))
+            GetComponent<Animator>().Play("CharacterIdle");
+        else if (isOnGround() && (horizontal > 0 || horizontal < 0))
+            GetComponent<Animator>().Play("CharacterWalk");
+
+        if (isOnGround() && !crouchHeld && !isUnderPlatform && Input.GetButtonDown("Jump")) jump = true;
+        crouchHeld = (isOnGround() && Input.GetButton("Crouch")) ? true : false;
+        jumpHeld = (!isOnGround() && !crouchHeld && !isUnderPlatform && Input.GetButton("Jump")) ? true : false;
+
+        if (!isOnGround())
+        {
+            if (lastJumpY < transform.position.y)
+            {
+                lastJumpY = transform.position.y;
+                GetComponent<Animator>().Play("CharacterJump");
+            }
+            else if (lastJumpY > transform.position.y)
+            {
+                GetComponent<Animator>().Play("CharacterFall");
+            }
+        }
+
     }
-    private void FixedUpdate()
+
+    void FixedUpdate()
     {
+        float moveFactor = horizontal * Time.fixedDeltaTime;
 
-        /**if (moveRight){
-            transform.position += new Vector3(1 * moveSpeed * Time.deltaTime, 0, 0);
-            sr.flipX = false;
-        }
-        else if (moveLeft) {
-            transform.position += new Vector3(-1 * moveSpeed * Time.deltaTime, 0, 0);
-            sr.flipX = true;
-        }*/ //implementa��o de movimento antigo
+        // Movement...
+        rigidBody2D.velocity = new Vector2(moveFactor * 10f, rigidBody2D.velocity.y);
 
-        rig.velocity = new Vector2(moveHorizontal * moveSpeed, rig.velocity.y);
+        // Flipping sprite according to movement direction...
+        if (moveFactor > 0 && !isFacingRight) flipSprite();
+        else if (moveFactor < 0 && isFacingRight) flipSprite();
 
-        if (moveHorizontal > 0.1f)
+        // Jumping...
+        if (jump)
         {
-            sr.flipX = false;
-        }
-        else if (moveHorizontal < -0.1f)
-        {
-            sr.flipX = true;
-        }
-        if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftShift)) {
-            IsRunning = true;
-            Speed = RunSpeed;
-            print("Running");
-        }
-        else
-        {
-            IsRunning = false;
-            Speed = NormalSpeed;
-            print("Not Running");
-        }
-        crouchingSize = new Vector2(1, 0.5f);
-        crouchingOffset = new Vector2(0, -0.25f);
-        standingSize = new Vector2(1, 1);
-        crouchingOffset = Vector2.zero;
-
-        //Start crouch
-        if (Input.GetButtonDown("Crouch"))
-        {
-            sprite.sprite = crouching;
-            collider.size = crouchingSize;
+            float jumpvel = 2f;
+            rigidBody2D.velocity = Vector2.up * jumpvel;
+            jump = false;
         }
 
-        //Stop crouch
-        if (Input.GetButtonUp("Crouch"))
+        // Jumping High...
+        if (jumpHeld && rigidBody2D.velocity.y > 0)
         {
-            sprite.sprite = standing;
-            collider.size = standingSize;
-
+            rigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (fallLongMult - 1) * Time.fixedDeltaTime;
         }
+        // Jumping Low...
+        else if (!jumpHeld && rigidBody2D.velocity.y > 0)
+        {
+            rigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (fallShortMult - 1) * Time.fixedDeltaTime;
+        }
+
+        // Crouching...
+        GetComponent<BoxCollider2D>().isTrigger = (crouchHeld || isUnderPlatform) ? true : false;
     }
 
-    void Jump()
+    private void flipSprite()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGround == true)
-        {
-            rig.AddForce(transform.up * jumpForce);
-            isGround = false;
-        }
+        isFacingRight = !isFacingRight;
+
+        Vector3 transformScale = transform.localScale;
+        transformScale.x *= -1;
+        transform.localScale = transformScale;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private bool isOnGround()
     {
-        if(collision.gameObject.tag == "ground")
-        {
-            isGround = true;
-        }
+        RaycastHit2D hit = Physics2D.CircleCast(circleCollider2D.bounds.center, circleCollider2D.radius, Vector2.down, 0.1f, groundLayer);
+        if (hit && !lastJumpY.Equals(0)) lastJumpY = 0;
+        return hit.collider != null;
     }
-    
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if ((groundLayer.value & (1 << collision.gameObject.layer)) > 0)
+            isUnderPlatform = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if ((groundLayer.value & (1 << collision.gameObject.layer)) > 0)
+            isUnderPlatform = false;
+
+    }
 }
