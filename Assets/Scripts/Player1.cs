@@ -5,43 +5,44 @@ using UnityEngine.InputSystem;
 
 public class Player1 : MonoBehaviour
 {
-    Rigidbody2D rb;
-    [SerializeField] int speed;
-    float speedMultiplier;
-    bool btnPressed;
+    private Rigidbody2D rb;
+    private Vector2  movimento;
+
+    public bool IsCrouched, IsProne;
+    private int tapCoubt = 0;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    public void SetMovimento(InputAction.CallbackContext value)
     {
-        float targetSpeed = speed * speedMultiplier;
-        rb.velocity = new Vector2(targetSpeed, rb.velocity.y);
-    }
-    public void Move(InputAction.CallbackContext value)
-    {
-        if (value.started)
-        {
-            btnPressed = true;
-            speedMultiplier = 1;
-        }
-        else if (value.canceled)
-        {
-            btnPressed = false;
-            speedMultiplier = 0;
-        }
+        movimento = value.ReadValue<Vector2>();
     }
 
-    public void Jump(InputAction.CallbackContext value)
+    public void SetPular(InputAction.CallbackContext value)
     {
-        if (value.started)
+        rb.AddForce(Vector3.up * 100);
+    }
+
+    private void FixedUpdate()
+    {
+        rb.AddForce(new Vector3(movimento.x, 0, movimento.y) * Time.fixedDeltaTime * 3000);
+    }
+
+    public void Crouch_Prone(InputAction.CallbackContext value)
+    {
+        if (Input.GetKeyDown(KeyCode.DownArrow)) 
         {
-            btnPressed = true;
+            IsCrouched = true;
+
+            tapCoubt += 1;
         }
-        else if (value.canceled)
+        if (Input.GetKeyUp(KeyCode.DownArrow))
         {
-            btnPressed = false;
+            IsCrouched = false;
+
+            IsProne = false;
         }
     }
 }

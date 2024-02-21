@@ -64911,7 +64911,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a9354acd9bb1514783a7155f37e76a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  IsCrouched: 0
+  IsProne: 0
 --- !u!114 &1730110122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64941,7 +64942,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1730110121}
         m_TargetAssemblyTypeName: Player1, Assembly-CSharp
-        m_MethodName: Move
+        m_MethodName: SetMovimento
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -64952,12 +64953,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 43b1555f-7807-4e1c-baf1-3b83253ccddc
-    m_ActionName: Gameplay/Move[/Keyboard/downArrow,/Keyboard/leftArrow]
+    m_ActionName: Gameplay/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1730110121}
         m_TargetAssemblyTypeName: Player1, Assembly-CSharp
-        m_MethodName: Jump
+        m_MethodName: SetPular
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -64969,6 +64970,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 35a6eda3-6d6b-4090-a238-6c9c068a21bc
     m_ActionName: Gameplay/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1730110121}
+        m_TargetAssemblyTypeName: Player1, Assembly-CSharp
+        m_MethodName: Crouch_Prone
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 55a117af-a900-4bcf-b7bb-579024d85c94
+    m_ActionName: Gameplay/Crouch[/Keyboard/downArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay

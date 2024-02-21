@@ -22,11 +22,20 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Crouch",
+                    "type": "Button",
+                    "id": "55a117af-a900-4bcf-b7bb-579024d85c94",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
+                    "name": "teclado ",
                     "id": "fa6cd294-fc6e-4ca2-a103-a6929002c7f4",
                     "path": "2DVector",
                     "interactions": "",
@@ -37,9 +46,9 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "down",
-                    "id": "987dcd07-502c-4913-9f3e-bc78c95136b9",
-                    "path": "<Keyboard>/downArrow",
+                    "name": "up",
+                    "id": "f936869b-a437-434b-842f-2f62651bd27f",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -61,7 +70,7 @@
                 {
                     "name": "right",
                     "id": "e967a3d4-0356-4449-9bd6-b84d3d678c0e",
-                    "path": "<Keyboard>/downArrow",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -99,6 +108,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "49021844-00ce-4b91-b257-1270706539cf",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
