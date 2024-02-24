@@ -5,44 +5,40 @@ using UnityEngine.InputSystem;
 
 public class Player1 : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private Vector2  movimento;
-
-    public bool IsCrouched, IsProne;
-    private int tapCoubt = 0;
-    private void Awake()
+    Rigidbody2D rb;
+    public int speed;
+    public int JumpPower;
+    Vector2 vecMove;
+    public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-
-    public void SetMovimento(InputAction.CallbackContext value)
+    public void Update()
     {
-        movimento = value.ReadValue<Vector2>();
+        
+    }
+    public void Jump(InputAction.CallbackContext value)
+    {
+        if (value.started)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, JumpPower);
+        }
     }
 
-    public void SetPular(InputAction.CallbackContext value)
+    public void Moviment(InputAction.CallbackContext value) 
     {
-        rb.AddForce(Vector3.up * 100);
+        vecMove = value.ReadValue<Vector2>();
+        Flip();
     }
 
     private void FixedUpdate()
     {
-        rb.AddForce(new Vector3(movimento.x, 0, movimento.y) * Time.fixedDeltaTime * 3000);
+        rb.velocity = new Vector2(vecMove.x * speed, rb.velocity.y);
     }
 
-    public void Crouch_Prone(InputAction.CallbackContext value)
+    void Flip()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow)) 
-        {
-            IsCrouched = true;
-
-            tapCoubt += 1;
-        }
-        if (Input.GetKeyUp(KeyCode.DownArrow))
-        {
-            IsCrouched = false;
-
-            IsProne = false;
-        }
+        if (vecMove.x < -0.01f) transform.localScale = new Vector3(-1, 1, 1);
+        if (vecMove.x > 0.01f) transform.localScale = new Vector3(1, 1, 1);
     }
 }
