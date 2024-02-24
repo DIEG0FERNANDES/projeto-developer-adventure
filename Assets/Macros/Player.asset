@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530e556d4407947dcae7102ff497587d, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"title":null,"summary":null,"pan":{"x":66.0,"y":-21.0},"zoom":1.0,"elements":[{"nest":{"source":"Embed","macro":null,"embed":{"title":"Non-Combat","summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Master","summary":null,"pan":{"x":165.0,"y":132.0},"zoom":1.0,"elements":[{"nest":{"source":"Macro","macro":0,"embed":null},"defaultValues":{},"position":{"x":107.0,"y":93.0},"guid":"68a4982e-603e-45b0-b51e-4fbd8b7a3fca","$version":"A","$type":"Unity.VisualScripting.SubgraphUnit"}],"$version":"A"}},"isStart":true,"position":{"x":-86.0,"y":-15.0},"width":170.0,"guid":"acc19afc-ce21-4592-b1e7-d997ddad5a1c","$version":"A","$type":"Unity.VisualScripting.FlowState"}],"$version":"A"}},"isStart":true,"position":{"x":-19.0,"y":-35.0},"width":170.0,"guid":"d4ff6d64-0a25-4bb0-8d23-2f20f36e4717","$type":"Unity.VisualScripting.SuperState"}],"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 313646d91cd3358488af310c1323c700, type: 2}
