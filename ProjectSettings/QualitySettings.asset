@@ -27,7 +27,6 @@ QualitySettings:
     realtimeReflectionProbes: 0
     billboardsFaceCameraPosition: 0
     vSyncCount: 0
-    realtimeGICPUUsage: 25
     lodBias: 0.3
     maximumLODLevel: 0
     streamingMipmapsActive: 0
@@ -64,7 +63,6 @@ QualitySettings:
     realtimeReflectionProbes: 0
     billboardsFaceCameraPosition: 0
     vSyncCount: 0
-    realtimeGICPUUsage: 25
     lodBias: 0.4
     maximumLODLevel: 0
     streamingMipmapsActive: 0
@@ -101,7 +99,6 @@ QualitySettings:
     realtimeReflectionProbes: 0
     billboardsFaceCameraPosition: 0
     vSyncCount: 1
-    realtimeGICPUUsage: 25
     lodBias: 0.7
     maximumLODLevel: 0
     streamingMipmapsActive: 0
@@ -138,7 +135,6 @@ QualitySettings:
     realtimeReflectionProbes: 1
     billboardsFaceCameraPosition: 1
     vSyncCount: 1
-    realtimeGICPUUsage: 50
     lodBias: 1
     maximumLODLevel: 0
     streamingMipmapsActive: 0
@@ -175,7 +171,6 @@ QualitySettings:
     realtimeReflectionProbes: 1
     billboardsFaceCameraPosition: 1
     vSyncCount: 1
-    realtimeGICPUUsage: 50
     lodBias: 1.5
     maximumLODLevel: 0
     streamingMipmapsActive: 0
@@ -205,14 +200,13 @@ QualitySettings:
     shadowmaskMode: 1
     skinWeights: 255
     textureQuality: 0
-    anisotropicTextures: 0
-    antiAliasing: 0
+    anisotropicTextures: 2
+    antiAliasing: 2
     softParticles: 1
     softVegetation: 1
     realtimeReflectionProbes: 1
     billboardsFaceCameraPosition: 1
     vSyncCount: 1
-    realtimeGICPUUsage: 100
     lodBias: 2
     maximumLODLevel: 0
     streamingMipmapsActive: 0
@@ -230,13 +224,12 @@ QualitySettings:
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
     Android: 2
+    Lumin: 5
     GameCoreScarlett: 5
     GameCoreXboxOne: 5
-    Lumin: 5
     Nintendo Switch: 5
     PS4: 5
     PS5: 5
-    Server: 0
     Stadia: 5
     Standalone: 5
     WebGL: 3
