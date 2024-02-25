@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530e556d4407947dcae7102ff497587d, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"title":"State Player","summary":null,"pan":{"x":66.0,"y":-21.0},"zoom":1.0,"elements":[{"nest":{"source":"Embed","macro":null,"embed":{"title":"Non-Combat","summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Master","summary":null,"pan":{"x":-1.89447,"y":217.9055},"zoom":1.0,"elements":[{"nest":{"source":"Macro","macro":0,"embed":null},"defaultValues":{},"position":{"x":72.0,"y":44.0},"guid":"68a4982e-603e-45b0-b51e-4fbd8b7a3fca","$version":"A","$type":"Unity.VisualScripting.SubgraphUnit","$id":"17"},{"outputCount":2,"defaultValues":{},"position":{"x":-112.0,"y":80.0},"guid":"66f3d482-826c-44f9-a2d1-6e9e7f36f166","$version":"A","$type":"Unity.VisualScripting.Sequence","$id":"20"},{"coroutine":false,"defaultValues":{},"position":{"x":-333.0,"y":85.0},"guid":"68b0b634-5cf1-43b8-bb30-62f6062b039f","$version":"A","$type":"Unity.VisualScripting.FixedUpdate","$id":"22"},{"nest":{"source":"Macro","macro":1,"embed":null},"defaultValues":{},"position":{"x":74.0,"y":168.0},"guid":"c32ab1d6-decc-4ce9-8ba4-4c220b33e5b8","$version":"A","$type":"Unity.VisualScripting.SubgraphUnit","$id":"24"},{"sourceUnit":{"$ref":"20"},"sourceKey":"0","destinationUnit":{"$ref":"17"},"destinationKey":"Input","guid":"d993d7e8-7754-4477-bce8-1fe822ba6f92","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"22"},"sourceKey":"trigger","destinationUnit":{"$ref":"20"},"destinationKey":"enter","guid":"c87ddc0b-397b-4f3b-8291-b9f67f3b11b9","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"20"},"sourceKey":"1","destinationUnit":{"$ref":"24"},"destinationKey":"Input","guid":"1deb484d-4917-4459-a21e-e53ac200ff01","$type":"Unity.VisualScripting.ControlConnection"},{"position":{"xMin":-120.0,"yMin":1.0,"xMax":227.0,"yMax":262.0},"label":"Checagem
+      de eventos do stado do player","comment":null,"color":{"r":0.9837489,"g":1.0,"b":0.0,"a":1.0},"guid":"0af074a9-a45e-4237-8cb2-707b1dac8f81","$version":"A","$type":"Unity.VisualScripting.GraphGroup"}],"$version":"A"}},"isStart":true,"position":{"x":-86.0,"y":-15.0},"width":170.0,"guid":"acc19afc-ce21-4592-b1e7-d997ddad5a1c","$version":"A","$type":"Unity.VisualScripting.FlowState"}],"$version":"A"}},"isStart":true,"position":{"x":-19.0,"y":-35.0},"width":170.0,"guid":"d4ff6d64-0a25-4bb0-8d23-2f20f36e4717","$type":"Unity.VisualScripting.SuperState"}],"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 313646d91cd3358488af310c1323c700, type: 2}
+    - {fileID: 11400000, guid: 06234ec748e8f604d9402ba98c0c655a, type: 2}
