@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Tela principal.unity
+- path: Assets/MainMenu/Tela principal.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
