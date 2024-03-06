@@ -49,3 +49,4 @@ Assets/Graphics/Player/Character_Dismanteled_Model.png.meta filter=lfs diff=lfs 
 Assets/Scenes/Testes.unity filter=lfs diff=lfs merge=lfs -text
 Temp/FSTimeGet-dc35a9877941d224f86041ea8a576642 filter=lfs diff=lfs merge=lfs -text
 ProjectSettings/URPProjectSettings.asset filter=lfs diff=lfs merge=lfs -text
+TempUnityLockfile filter=lfs diff=lfs merge=lfs -text
