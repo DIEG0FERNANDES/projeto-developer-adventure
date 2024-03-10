@@ -1,0 +1,356 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.30f1 (b4360d7cdac4) revision 11810317'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit CoreSingleLanguage' Language: 'pt' Physical Memory: 3819 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.30f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/paulo/OneDrive/Documentos/GitHub/projeto-developer-adventure
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+60364
+Successfully changed project path to: C:/Users/paulo/OneDrive/Documentos/GitHub/projeto-developer-adventure
+C:/Users/paulo/OneDrive/Documentos/GitHub/projeto-developer-adventure
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [6760] Host "[IP] 26.254.38.81 [Port] 0 [Flags] 2 [Guid] 1854258455 [EditorId] 1854258455 [Version] 1048832 [Id] WindowsEditor(7,PauloMoraes) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [6760] Host "[IP] 26.254.38.81 [Port] 0 [Flags] 2 [Guid] 1854258455 [EditorId] 1854258455 [Version] 1048832 [Id] WindowsEditor(7,PauloMoraes) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with {0} workers.
+Refreshing native plugins compatible for Editor in 754.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.30f1 (b4360d7cdac4)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.30f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/paulo/OneDrive/Documentos/GitHub/projeto-developer-adventure/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) UHD Graphics (ID=0x9a78)
+    Vendor:   Intel
+    VRAM:     1909 MB
+    Driver:   30.0.100.9805
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.30f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.30f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.30f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56784
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.30f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.028174 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 283.61 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.860 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3862ms)
+		BeginReloadAssembly (947ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (2ms)
+		EndReloadAssembly (2117ms)
+			LoadAssemblies (941ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (561ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (54ms)
+			SetupLoadedEditorAssemblies (1397ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (17ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (284ms)
+				BeforeProcessingInitializeOnLoad (3ms)
+				ProcessInitializeOnLoadAttributes (765ms)
+				ProcessInitializeOnLoadMethodAttributes (327ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.458052 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 3.69 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.087 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5091ms)
+		BeginReloadAssembly (1294ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (23ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (58ms)
+		EndReloadAssembly (2639ms)
+			LoadAssemblies (1211ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (489ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (112ms)
+			SetupLoadedEditorAssemblies (1383ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (4ms)
+				BeforeProcessingInitializeOnLoad (208ms)
+				ProcessInitializeOnLoadAttributes (851ms)
+				ProcessInitializeOnLoadMethodAttributes (284ms)
+				AfterProcessingInitializeOnLoad (19ms)
+				EditorAssembliesLoaded (2ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (245ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Failed to load shader (instanceID 550, GUID c8b6a681c7b4e2e4785ffab093907f9e)
+Failed to load shader (instanceID 418, GUID ec9fec698a3456d4fb18cf8bacb7a2bc)
+Failed to load shader (instanceID 480, GUID 0f4122b9a743b744abe2fb6a0a88868b)
+Failed to load shader (instanceID 556, GUID 0a7e590f3cf1d4ee8a8fab5b6eff09ef)
+Failed to load shader (instanceID 548, GUID 21322c8b137c66e49b86085d3c8161f6)
+Failed to load shader (instanceID 410, GUID d6dae50ee9e1bfa4db75f19f99355220)
+Failed to load shader (instanceID 462, GUID e8ee25143a34b8c4388709ea947055d1)
+Failed to load shader (instanceID 414, GUID 04c410c9937594faa893a11dceb85f7e)
+Failed to load shader (instanceID 500, GUID a16365e8c873daa4c94919438490b905)
+Failed to load shader (instanceID 442, GUID 4431b1f1f743fbf4eb310a967890cbea)
+Failed to load shader (instanceID 502, GUID 0d0f817524897904ba47a6a1d55e7668)
+Failed to load shader (instanceID 536, GUID 77cfa04f893eb8745b6a454a3d51b43c)
+Failed to load shader (instanceID 488, GUID e6e9a19c3678ded42a3bc431ebef7dbd)
+Failed to load shader (instanceID 494, GUID d104b2fc1ca6445babb8e90b0758136b)
+Failed to load shader (instanceID 420, GUID e7857e9d0c934dc4f83f270f8447b006)
+Failed to load shader (instanceID 558, GUID ee7e4c9a5f6364b688a332c67fc32cca)
+Failed to load shader (instanceID 562, GUID de02b375720b5c445afe83cd483bedf3)
+Failed to load shader (instanceID 430, GUID e8b802ac01d87144b91f12f40c1f2659)
+Failed to load shader (instanceID 396, GUID 0a8f4dcd626bcd14bbbfa5a5e116b16e)
+Failed to load shader (instanceID 518, GUID 36e335017ad71d54fbb10842863188ae)
+Failed to load shader (instanceID 514, GUID 50b406436c6214c49aaaa6011b71dde8)
+Failed to load shader (instanceID 538, GUID ce09d4a80b88c5a4eb9768fab4f1ee00)
+Failed to load shader (instanceID 440, GUID 13c02b14c4d048fa9653293d54f6e0e1)
+Failed to load shader (instanceID 504, GUID 4386e57b23a56004c93e1d57d2bbcb4f)
+Failed to load shader (instanceID 560, GUID c7d04ca57e5449d49ad9cee1c604bc26)
+Failed to load shader (instanceID 508, GUID 0ca6dca7396eb48e5849247ffd444914)
+Failed to load shader (instanceID 484, GUID cf852408f2e174538bcd9b7fda1c5ae7)
+Failed to load shader (instanceID 520, GUID f056d8bd2a1c7e44e9729144b4c70395)
+Failed to load shader (instanceID 432, GUID 0406db5a14f94604a8c57ccfbc9f3b46)
+Failed to load shader (instanceID 540, GUID 0849e84e3d62649e8882e9d6f056a017)
+Failed to load shader (instanceID 544, GUID 5ec81c81908db34429b4f6ddecadd3bd)
+Failed to load shader (instanceID 408, GUID c17132b1f77d20942aa75f8429c0f8bc)
+Failed to load shader (instanceID 496, GUID c56b7e0d4c7cb484e959caeeedae9bbf)
+Failed to load shader (instanceID 456, GUID a15b78cf8ca26ca4fb2090293153c62c)
+Failed to load shader (instanceID 424, GUID 933532a4fcc9baf4fa0491de14d08ed7)
+Failed to load shader (instanceID 476, GUID e507fdfead5ca47e8b9a768b51c291a1)
+Failed to load shader (instanceID 498, GUID 7b3ede40266cd49a395def176e1bc486)
+Failed to load shader (instanceID 458, GUID 5f1864addb451f54bae8c86d230f736e)
+Failed to load shader (instanceID 522, GUID 8516d7a69675844a7a0b7095af7c46af)
+Failed to load shader (instanceID 450, GUID 5e7134d6e63e0bc47a1dd2669cedb379)
+Failed to load shader (instanceID 444, GUID d5a307c014552314b9f560906d708772)
+Failed to load shader (instanceID 524, GUID 8fbe92a9edfe6074e841d6dd1509bc59)
+Failed to load shader (instanceID 416, GUID 65df88701913c224d95fc554db28381a)
+Failed to load shader (instanceID 564, GUID 650dd9526735d5b46b79224bc6e94025)
+Failed to load shader (instanceID 452, GUID 2aed67ad60045d54ba3a00c91e2d2631)
+Failed to load shader (instanceID 446, GUID 1121bb4e615ca3c48b214e79e841e823)
+Failed to load shader (instanceID 398, GUID 3230fdc399f8287488325e5941a00527)
+Failed to load shader (instanceID 526, GUID 5caf62d8bd7c44596ace77ef9eb8ea31)
+Failed to load shader (instanceID 486, GUID e9155b26e1bc55942a41e518703fe304)
+Failed to load shader (instanceID 406, GUID 9c442dc870b456e48b615cd8add0e9ef)
+Failed to load shader (instanceID 474, GUID f6783ab646d374f94b199774402a5144)
+Failed to load shader (instanceID 566, GUID 19dfbb09098c9584a83c956fbd6c5d79)
+Failed to load shader (instanceID 438, GUID 8d2bb70cbf9db8d4da26e15b26e74248)
+Failed to load shader (instanceID 434, GUID 69c1f799e772cb6438f56c23efccb782)
+Failed to load shader (instanceID 400, GUID 603d454d711fe784cba9ce08dd22b881)
+Failed to load shader (instanceID 492, GUID 93446b5c5339d4f00b85c159e1159b7c)
+Failed to load shader (instanceID 490, GUID 5fd9a8feb75a4b5894c241777f519d4e)
+Failed to load shader (instanceID 554, GUID da07703fcc09f8d4799221050659bd55)
+Failed to load shader (instanceID 568, GUID 2df96b66b5510f94b98df2ac6f926ef4)
+Failed to load shader (instanceID 402, GUID 7cbb3655339ec401ca75ba5fe26884f4)
+Failed to load shader (instanceID 528, GUID e35a31e1679aeff489e202f5cc4853d5)
+Failed to load shader (instanceID 478, GUID 29868e73b638e48ca99a19ea58c48d90)
+Failed to load shader (instanceID 460, GUID 6cda457ac28612740adb23da5d39ea92)
+Failed to load shader (instanceID 404, GUID bedd19944f451ba4d83e7ed69be98d5c)
+Failed to load shader (instanceID 426, GUID e39bd598ce13f44ba8af997d3e42cd18)
+Failed to load shader (instanceID 530, GUID b7839dad95683814aa64166edc107ae2)
+Failed to load shader (instanceID 546, GUID d79e1c784eaf80c4585c0be7391f757a)
+Failed to load shader (instanceID 542, GUID 44fc62292b65ab04eabcf310e799ccf6)
+Failed to load shader (instanceID 464, GUID 562b7ae4f629f144aa97780546fce7c6)
+Failed to load shader (instanceID 436, GUID e260cfa7296ee7642b167f1eb5be5023)
+Failed to load shader (instanceID 454, GUID 1edcd131364091c46a17cbff0b1de97a)
+Failed to load shader (instanceID 506, GUID 95e15a77195eb574ab82aaac18b1c796)
+Failed to load shader (instanceID 570, GUID 77774d9009bb81447b048c907d4c6273)
+Failed to load shader (instanceID 482, GUID 99134b1f0c27d54469a840832a28fadf)
+Failed to load shader (instanceID 448, GUID 63eaba0ebfb82cc43bde059b4a8c65f6)
+Failed to load shader (instanceID 428, GUID 60e10855641b4d84da68ec72e6f6eeb8)
+Failed to load shader (instanceID 412, GUID 0f854b35a0cf61a429bd5dcfea30eddd)
+Failed to load shader (instanceID 466, GUID c49e63ed1bbcb334780a3bd19dfed403)
+Failed to load shader (instanceID 510, GUID 7e60080c8cd24a2468cb08b4bfee5606)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.37 seconds
+Refreshing native plugins compatible for Editor in 2.16 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 21 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 2 unused Assets / (46.8 KB). Loaded Objects now: 491.
+Memory consumption went from 33.1 MB to 33.1 MB.
+Total: 55.225200 ms (FindLiveObjects: 0.065800 ms CreateObjectMapping: 0.006200 ms MarkObjects: 50.756600 ms  DeleteObjects: 4.393800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:CustomObjectIndexerAttribute: bc11b3a6c3213fcdd17b65e7da85e133 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1691187.965783 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(7f48138139460ba4ca2e9a99d2d278bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Scenes using Guid(7f48138139460ba4ca2e9a99d2d278bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42939d84d9bb246991773c7f96efe5be') in 0.391336 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 5.951174 seconds.
+  path: Assets/TextMesh Pro
+  artifactKey: Guid(f54d1bd14bd3ca042bd867b519fee8cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/TextMesh Pro using Guid(f54d1bd14bd3ca042bd867b519fee8cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5648c5ef36b7beab651a001a8d08867') in 0.924434 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.800083 seconds.
+  path: Assets/Scripts/Player.cs
+  artifactKey: Guid(77fef1477ef36f74188314ceb441832d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Scripts/Player.cs using Guid(77fef1477ef36f74188314ceb441832d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2a3ac621399f7aa8830da27f57acbd7') in 1.816892 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 17.422653 seconds.
+  path: Assets/Macros
+  artifactKey: Guid(3bfff19591f31d9438afac2cfef27ba1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Macros using Guid(3bfff19591f31d9438afac2cfef27ba1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ee75d128b0a280d8780fcd1a42ede5a') in 0.120268 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 13.249159 seconds.
+  path: Assets/Scenes/Tela principal.unity
+  artifactKey: Guid(0856aacfb5c86a840bfc3d56ffb99a2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Scenes/Tela principal.unity using Guid(0856aacfb5c86a840bfc3d56ffb99a2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5208792dd3b5950b5d1439308b0a4ca4') in 0.263035 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 9.809535 seconds.
+  path: Assets/Unity.VisualScripting.Generated
+  artifactKey: Guid(9ac11ef9595f0a74890b68dda757f0f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Unity.VisualScripting.Generated using Guid(9ac11ef9595f0a74890b68dda757f0f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30237f1d7130bb55898fce94a8b5b059') in 0.139422 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 2.200473 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(64fc331688b676b4b98816db0448efc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Scripts using Guid(64fc331688b676b4b98816db0448efc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97bfbabf2961653156429512632e8adb') in 0.092868 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.496743 seconds.
+  path: Assets/Scenes/Testes.unity
+  artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Scenes/Testes.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89542067cf01b339f017fa89ec5aef65') in 0.059731 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 2.819447 seconds.
+  path: Assets/MainMenu
+  artifactKey: Guid(a220e801fa81d8a4982dd0847a1d64b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/MainMenu using Guid(a220e801fa81d8a4982dd0847a1d64b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d4d370b108faffe58c85b24692a7ee9') in 0.121267 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.494435 seconds.
+  path: Assets/MainMenu/MainMenu.cs
+  artifactKey: Guid(982aa6671771dcb45a264f5c8bde28f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/MainMenu/MainMenu.cs using Guid(982aa6671771dcb45a264f5c8bde28f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23b7e254971d2759ff90a1fa43dc2be2') in 0.519525 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 3.033937 seconds.
+  path: Assets/Graphics
+  artifactKey: Guid(15c4cec711268db43a47b53fd34ccff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Graphics using Guid(15c4cec711268db43a47b53fd34ccff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f9c9fdc14c804ba196f7fe38bfdadba') in 0.959840 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 62.903358 seconds.
+  path: Assets/MainMenu/Natural.asset
+  artifactKey: Guid(6c28d51ad2d3ba543aaeaba8f566636c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/MainMenu/Natural.asset using Guid(6c28d51ad2d3ba543aaeaba8f566636c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7095af06a19ad05048db84ab647dc637') in 22.625409 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000271 seconds.
+  path: Assets/MainMenu/Test de canva.png
+  artifactKey: Guid(ccdfd10ad77e9864fb0459a0f01fac3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/MainMenu/Test de canva.png using Guid(ccdfd10ad77e9864fb0459a0f01fac3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e5cc96d88dfef070a5298c6a02645e0') in 3.509589 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000128 seconds.
+  path: Assets/MainMenu/Player.prefab
+  artifactKey: Guid(b8d0c0e821814d1429bffd9fa40ffdb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/MainMenu/Player.prefab using Guid(b8d0c0e821814d1429bffd9fa40ffdb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10130d3f38e70d68b70cfe54b43efb42') in 0.081283 seconds 
+Number of asset objects unloaded after import = 8
