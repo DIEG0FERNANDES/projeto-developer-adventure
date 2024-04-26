@@ -19,16 +19,17 @@ public class Player: MonoBehaviour
         inFloor = Physics2D.Linecast(transform.position, groundCheck.position, groundLayer);
         Debug.DrawLine(transform.position, groundCheck.position, Color.blue);
 
-        if (Input.GetButtonDown("Jump") && inFloor) {
-            isJump = true;
+        if (Input.GetButtonDown("Jump") && isGrounded()) 
+        {
+            rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, jumpForce);
         }
-        else if (Input.GetButtonUp("jump") && rbPlayer.velocity.y > 0 ) {
-            rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, rbPlayer.velocity.y * 0.5f);
+        if (Input.GetButtonUp("Jump") && isGrounded()) 
+        {
+            rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, rbPlayer.velocity.x * 0.5f);
         }
     }
     private void FixedUpdate() {
         Move();
-        JumpPlayer();
     }
     void Move() {
         float xMove = Input.GetAxis("Horizontal");
@@ -41,10 +42,8 @@ public class Player: MonoBehaviour
             transform.eulerAngles = new Vector2(0, 180);
         }
     }
-    void JumpPlayer() {
-        if (isJump) {
-            rbPlayer.velocity = Vector2.up * jumpForce;
-            isJump = false;
-        }
+
+    private bool isGrounded() {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 }
