@@ -21,6 +21,7 @@ public class Player: MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded()) 
         {
+           
             rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, jumpForce);
         }
         if (Input.GetButtonUp("Jump") && isGrounded()) 
