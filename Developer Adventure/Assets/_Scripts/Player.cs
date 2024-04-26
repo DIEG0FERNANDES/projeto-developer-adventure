@@ -11,28 +11,31 @@ public class Player: MonoBehaviour
     [SerializeField] bool inFloor = true;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
+    public float groundCheckRadius;
+    private bool isTouchingGround;
     Rigidbody2D rbPlayer;
     private void Awake() {
         rbPlayer = GetComponent<Rigidbody2D>();
     }
     private void Update() {
-        inFloor = Physics2D.Linecast(transform.position, groundCheck.position, groundLayer);
-        Debug.DrawLine(transform.position, groundCheck.position, Color.blue);
-
-        if (Input.GetButtonDown("Jump") && isGrounded()) 
+        //inFloor = Physics2D.Linecast(transform.position, groundCheck.position, groundLayer);
+        //Debug.DrawLine(transform.position, groundCheck.position, Color.blue);
+        //isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        if (Input.GetButtonDown("Jump") ) 
         {
            
             rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, jumpForce);
         }
-        if (Input.GetButtonUp("Jump") && isGrounded()) 
-        {
-            rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, rbPlayer.velocity.x * 0.5f);
-        }
+        //if (Input.GetButtonUp("Jump") && isGrounded()) 
+        //{
+        //    rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, rbPlayer.velocity.x * 0.5f);
+        //}
     }
     private void FixedUpdate() {
         Move();
     }
     void Move() {
+        
         float xMove = Input.GetAxis("Horizontal");
         rbPlayer.velocity = new Vector2(xMove * speed, rbPlayer.velocity.y);
 
@@ -44,7 +47,7 @@ public class Player: MonoBehaviour
         }
     }
 
-    private bool isGrounded() {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    }
+    //private bool isGrounded() {
+      //  return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    //}
 }
