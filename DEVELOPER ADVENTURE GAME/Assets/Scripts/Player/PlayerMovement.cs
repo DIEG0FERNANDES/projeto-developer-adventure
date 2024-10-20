@@ -29,19 +29,15 @@ public class PlayerMovement : MonoBehaviour
 		animator.SetFloat("InputX", moveInput.x);
 		animator.SetFloat("InputY", moveInput.y);
 
-		// Verifica se o personagem está se movendo
 		if (moveInput.magnitude > 0)
 		{
 			animator.SetBool("isWalking", true);
-			// Atualiza os últimos inputs enquanto se move
 			animator.SetFloat("LastInputX", moveInput.x);
 			animator.SetFloat("LastInputY", moveInput.y);
 		}
 		else
 		{
 			animator.SetBool("isWalking", false);
-			// Atualiza os últimos inputs quando para
-			// Isso mantém os valores corretos para idle
 			animator.SetFloat("LastInputX", animator.GetFloat("LastInputX"));
 			animator.SetFloat("LastInputY", animator.GetFloat("LastInputY"));
 		}
