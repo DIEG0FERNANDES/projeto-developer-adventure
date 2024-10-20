@@ -3,43 +3,55 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-	[Header("Configurações de Movimento do Player")]
-	[SerializeField]
-	private float moveSpeed = 5f;
-	private Rigidbody2D rb;
-	private Vector2 moveInput;
-	private Animator animator;
+	[Header("Referencias")]
+	[Header("Walk")]
+	[Range(1f, 100f)]
+	public float moveSpeed = 12f;
+
+	//  Componentets do Player
+	private Rigidbody2D _rb;
+	private Animator _animator;
+
+	// Variaveis de Movimento
+	private Vector2 _moveVelocity;
 
 	private void Start()
 	{
-		rb = GetComponent<Rigidbody2D>();
-		animator = GetComponent<Animator>();
+		_rb = GetComponent<Rigidbody2D>();
+		_animator = GetComponent<Animator>();
 	}
 
 	private void Update() { }
 
 	private void FixedUpdate()
 	{
-		rb.velocity = moveInput * moveSpeed;
+		movePlayer();
 	}
 
 	public void OnMove(InputAction.CallbackContext context)
 	{
-		moveInput = context.ReadValue<Vector2>();
-		animator.SetFloat("InputX", moveInput.x);
-		animator.SetFloat("InputY", moveInput.y);
+		_moveVelocity = context.ReadValue<Vector2>();
+		_animator.SetFloat("InputX", _moveVelocity.x);
+		_animator.SetFloat("InputY", _moveVelocity.y);
 
-		if (moveInput.magnitude > 0)
+		if (_moveVelocity.magnitude > 0)
 		{
-			animator.SetBool("isWalking", true);
-			animator.SetFloat("LastInputX", moveInput.x);
-			animator.SetFloat("LastInputY", moveInput.y);
+			_animator.SetBool("isWalking", true);
+			_animator.SetFloat("LastInputX", _moveVelocity.x);
+			_animator.SetFloat("LastInputY", _moveVelocity.y);
 		}
 		else
 		{
-			animator.SetBool("isWalking", false);
-			animator.SetFloat("LastInputX", animator.GetFloat("LastInputX"));
-			animator.SetFloat("LastInputY", animator.GetFloat("LastInputY"));
+			_animator.SetBool("isWalking", false);
+			_animator.SetFloat("LastInputX", _animator.GetFloat("LastInputX"));
+			_animator.SetFloat("LastInputY", _animator.GetFloat("LastInputY"));
 		}
+	}
+
+	private void movePlayer()
+	{
+		Vector2 movement = new Vector2(_moveVelocity.x, _moveVelocity.y);
+		transform.Translate(_moveVelocity * moveSpeed * Time.fixedDeltaTime);
+		// _rb.velocity = _moveVelocity * moveSpeed;
 	}
 }

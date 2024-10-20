@@ -1,17 +1,26 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CoinCollectables : MonoBehaviour
 {
-	public CoinManager cm;
+	[Header("Referencia ao CoinManager")]
+	[SerializeField]
+	private CoinManager cm;
 
-	public SpriteRenderer color;
+	[Header("Componente do Player")]
+	[SerializeField]
+	private Animator _animator;
 
-	void Start()
+	public RuntimeAnimatorController _defaultSkin;
+	public RuntimeAnimatorController _greenSkin;
+	public RuntimeAnimatorController _redSkin;
+	public RuntimeAnimatorController _cyanSkin;
+	public RuntimeAnimatorController _magentaSkin;
+
+	private void Start()
 	{
-		color = GetComponent<SpriteRenderer>();
+		_animator = GetComponent<Animator>();
 	}
 
 	public int GetCoinCount()
@@ -23,72 +32,73 @@ public class CoinCollectables : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Coin"))
 		{
-			if (color.material.color == Color.green)
+			if (_animator.runtimeAnimatorController == _greenSkin)
 			{
 				Destroy(other.gameObject);
 				cm.coinCount += 2;
-				Debug.Log("moeda acrescentada");
 			}
-			else if (color.material.color == Color.red)
+			else if (_animator.runtimeAnimatorController == _redSkin)
 			{
 				Destroy(other.gameObject);
 				cm.coinCount -= 2;
-				Debug.Log("moeda diminuida");
 			}
-			else if (color.material.color == Color.magenta)
+			else if (_animator.runtimeAnimatorController == _magentaSkin)
 			{
 				Destroy(other.gameObject);
 				cm.coinCount *= 2;
-				Debug.Log("moeda multiplicada");
 			}
-			else if (color.material.color == Color.cyan)
+			else if (_animator.runtimeAnimatorController == _cyanSkin)
 			{
 				Destroy(other.gameObject);
 				cm.coinCount /= 2;
-				Debug.Log("moeda dividida");
 			}
-			else if (color.material.color == Color.gray)
+			else if (_animator.runtimeAnimatorController == _defaultSkin)
 			{
 				Destroy(other.gameObject);
-				Debug.Log("acontede nada com as moedas");
 			}
 			else
 			{
 				Destroy(other.gameObject);
-				Debug.Log("moeda destruida, acontece nada");
 			}
 		}
-
 		if (other.gameObject.CompareTag("Plus"))
 		{
 			Destroy(other.gameObject);
-			color.material.color = Color.green;
-			Debug.Log("Operador Mais");
+			_animator.runtimeAnimatorController = _greenSkin;
+			ResyncAnimatorParams(); // Resincronizar parâmetros do Animator
 		}
-
 		if (other.gameObject.CompareTag("Minus"))
 		{
 			Destroy(other.gameObject);
-			color.material.color = Color.red;
-			Debug.Log("Operador Menos");
+			_animator.runtimeAnimatorController = _redSkin;
+			ResyncAnimatorParams(); // Resincronizar parâmetros do Animator
 		}
 		if (other.gameObject.CompareTag("Multiply"))
 		{
 			Destroy(other.gameObject);
-			color.material.color = Color.magenta;
-			Debug.Log("Operador de Multiplicação");
+			_animator.runtimeAnimatorController = _magentaSkin;
+			ResyncAnimatorParams(); // Resincronizar parâmetros do Animator
 		}
 		if (other.gameObject.CompareTag("Divide"))
 		{
 			Destroy(other.gameObject);
-			color.material.color = Color.cyan;
-			Debug.Log("Operador de Divisão");
+			_animator.runtimeAnimatorController = _cyanSkin;
+			ResyncAnimatorParams(); // Resincronizar parâmetros do Animator
 		}
 		if (other.gameObject.CompareTag("Clear"))
 		{
 			Destroy(other.gameObject);
-			color.material.color = Color.gray;
-			Debug.Log("Operador Removido");
+			_animator.runtimeAnimatorController = _defaultSkin;
+			ResyncAnimatorParams(); // Resincronizar parâmetros do Animator
 		}
+	}
+
+	private void ResyncAnimatorParams()
+	{
+		_animator.SetFloat("InputX", 0);
+		_animator.SetFloat("InputY", 0);
+		_animator.SetBool("isWalking", false);
+		_animator.SetFloat("LastInputX", 0);
+		_animator.SetFloat("LastInputY", 0);
 	}
 }
