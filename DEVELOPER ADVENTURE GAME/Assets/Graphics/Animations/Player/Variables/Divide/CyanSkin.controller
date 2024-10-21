@@ -124,8 +124,8 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: LastInpuY
     m_Mirror: 0
-  m_BlendParameter: LastInpuY
-  m_BlendParameterY: LastInpuX
+  m_BlendParameter: LastInputX
+  m_BlendParameterY: LastInputY
   m_MinThreshold: 0
   m_MaxThreshold: 0.875
   m_UseAutomaticThresholds: 1
@@ -203,8 +203,8 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: LastInpuY
     m_Mirror: 0
-  m_BlendParameter: InputY
-  m_BlendParameterY: InputX
+  m_BlendParameter: InputX
+  m_BlendParameterY: InputY
   m_MinThreshold: 0
   m_MaxThreshold: 0.75
   m_UseAutomaticThresholds: 1
@@ -277,25 +277,25 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: LastInpuY
+  - m_Name: LastInputX
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: LastInpuX
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: InputY
+  - m_Name: LastInputY
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: InputX
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: InputY
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0

@@ -33,9 +33,13 @@ public class Door : MonoBehaviour
 
 	private void Update()
 	{
-		if (isNearDoor && Input.GetKeyDown(KeyCode.C))
+		if (isNearDoor)
 		{
-			SceneManager.LoadScene(2);
+			// Verifica se a tecla C do teclado ou o botão sul do gamepad foi pressionado
+			if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.JoystickButton0))
+			{
+				SceneManager.LoadScene(2);
+			}
 		}
 	}
 }

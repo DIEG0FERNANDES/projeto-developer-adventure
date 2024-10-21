@@ -8,12 +8,17 @@ public class PlayerMovement : MonoBehaviour
 	[Range(1f, 100f)]
 	public float moveSpeed = 12f;
 
-	//  Componentets do Player
+	// Componentes do Player
 	private Rigidbody2D _rb;
 	private Animator _animator;
 
-	// Variaveis de Movimento
+	// Variáveis de Movimento
 	private Vector2 _moveVelocity;
+
+	// Variáveis para armazenar os últimos valores de Input
+	public float lastInputX { get; private set; }
+	public float lastInputY { get; private set; }
+	public bool isWalking { get; private set; }
 
 	private void Start()
 	{
@@ -37,21 +42,23 @@ public class PlayerMovement : MonoBehaviour
 		if (_moveVelocity.magnitude > 0)
 		{
 			_animator.SetBool("isWalking", true);
-			_animator.SetFloat("LastInputX", _moveVelocity.x);
-			_animator.SetFloat("LastInputY", _moveVelocity.y);
+			lastInputX = _moveVelocity.x;
+			lastInputY = _moveVelocity.y;
+			isWalking = true;
 		}
 		else
 		{
 			_animator.SetBool("isWalking", false);
-			_animator.SetFloat("LastInputX", _animator.GetFloat("LastInputX"));
-			_animator.SetFloat("LastInputY", _animator.GetFloat("LastInputY"));
+			isWalking = false;
 		}
+
+		_animator.SetFloat("LastInputX", lastInputX);
+		_animator.SetFloat("LastInputY", lastInputY);
 	}
 
 	private void movePlayer()
 	{
 		Vector2 movement = new Vector2(_moveVelocity.x, _moveVelocity.y);
 		transform.Translate(_moveVelocity * moveSpeed * Time.fixedDeltaTime);
-		// _rb.velocity = _moveVelocity * moveSpeed;
 	}
 }

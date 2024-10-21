@@ -4,101 +4,109 @@ using UnityEngine;
 
 public class CoinCollectables : MonoBehaviour
 {
-	[Header("Referencia ao CoinManager")]
-	[SerializeField]
-	private CoinManager cm;
+    [Header("Referencia ao CoinManager")]
+    [SerializeField]
+    private CoinManager cm;
 
-	[Header("Componente do Player")]
-	[SerializeField]
-	private Animator _animator;
+    [Header("Componente do Player")]
+    [SerializeField]
+    private Animator _animator;
+    [SerializeField]
+    private PlayerMovement _playerMovement;
 
-	public RuntimeAnimatorController _defaultSkin;
-	public RuntimeAnimatorController _greenSkin;
-	public RuntimeAnimatorController _redSkin;
-	public RuntimeAnimatorController _cyanSkin;
-	public RuntimeAnimatorController _magentaSkin;
+    public RuntimeAnimatorController _defaultSkin;
+    public RuntimeAnimatorController _greenSkin;
+    public RuntimeAnimatorController _redSkin;
+    public RuntimeAnimatorController _cyanSkin;
+    public RuntimeAnimatorController _magentaSkin;
 
-	private void Start()
-	{
-		_animator = GetComponent<Animator>();
-	}
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+        _playerMovement = GetComponent<PlayerMovement>();
+    }
 
-	public int GetCoinCount()
-	{
-		return cm.GetCoinCount();
-	}
+    public int GetCoinCount()
+    {
+        return cm.GetCoinCount();
+    }
 
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.gameObject.CompareTag("Coin"))
-		{
-			if (_animator.runtimeAnimatorController == _greenSkin)
-			{
-				Destroy(other.gameObject);
-				cm.coinCount += 2;
-			}
-			else if (_animator.runtimeAnimatorController == _redSkin)
-			{
-				Destroy(other.gameObject);
-				cm.coinCount -= 2;
-			}
-			else if (_animator.runtimeAnimatorController == _magentaSkin)
-			{
-				Destroy(other.gameObject);
-				cm.coinCount *= 2;
-			}
-			else if (_animator.runtimeAnimatorController == _cyanSkin)
-			{
-				Destroy(other.gameObject);
-				cm.coinCount /= 2;
-			}
-			else if (_animator.runtimeAnimatorController == _defaultSkin)
-			{
-				Destroy(other.gameObject);
-			}
-			else
-			{
-				Destroy(other.gameObject);
-			}
-		}
-		if (other.gameObject.CompareTag("Plus"))
-		{
-			Destroy(other.gameObject);
-			_animator.runtimeAnimatorController = _greenSkin;
-			ResyncAnimatorParams(); // Resincronizar parâmetros do Animator
-		}
-		if (other.gameObject.CompareTag("Minus"))
-		{
-			Destroy(other.gameObject);
-			_animator.runtimeAnimatorController = _redSkin;
-			ResyncAnimatorParams(); // Resincronizar parâmetros do Animator
-		}
-		if (other.gameObject.CompareTag("Multiply"))
-		{
-			Destroy(other.gameObject);
-			_animator.runtimeAnimatorController = _magentaSkin;
-			ResyncAnimatorParams(); // Resincronizar parâmetros do Animator
-		}
-		if (other.gameObject.CompareTag("Divide"))
-		{
-			Destroy(other.gameObject);
-			_animator.runtimeAnimatorController = _cyanSkin;
-			ResyncAnimatorParams(); // Resincronizar parâmetros do Animator
-		}
-		if (other.gameObject.CompareTag("Clear"))
-		{
-			Destroy(other.gameObject);
-			_animator.runtimeAnimatorController = _defaultSkin;
-			ResyncAnimatorParams(); // Resincronizar parâmetros do Animator
-		}
-	}
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            if (_animator.runtimeAnimatorController == _greenSkin)
+            {
+                Destroy(other.gameObject);
+                cm.coinCount += 2;
+            }
+            else if (_animator.runtimeAnimatorController == _redSkin)
+            {
+                Destroy(other.gameObject);
+                cm.coinCount -= 2;
+            }
+            else if (_animator.runtimeAnimatorController == _magentaSkin)
+            {
+                Destroy(other.gameObject);
+                cm.coinCount *= 2;
+            }
+            else if (_animator.runtimeAnimatorController == _cyanSkin)
+            {
+                Destroy(other.gameObject);
+                cm.coinCount /= 2;
+            }
+            else if (_animator.runtimeAnimatorController == _defaultSkin)
+            {
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
+        }
+        if (other.gameObject.CompareTag("Plus"))
+        {
+            Destroy(other.gameObject);
+            _animator.runtimeAnimatorController = _greenSkin;
+            StartCoroutine(ResyncAnimatorParams()); // Resincronizar parâmetros do Animator com atraso
+        }
+        if (other.gameObject.CompareTag("Minus"))
+        {
+            Destroy(other.gameObject);
+            _animator.runtimeAnimatorController = _redSkin;
+            StartCoroutine(ResyncAnimatorParams()); // Resincronizar parâmetros do Animator com atraso
+        }
+        if (other.gameObject.CompareTag("Multiply"))
+        {
+            Destroy(other.gameObject);
+            _animator.runtimeAnimatorController = _magentaSkin;
+            StartCoroutine(ResyncAnimatorParams()); // Resincronizar parâmetros do Animator com atraso
+        }
+        if (other.gameObject.CompareTag("Divide"))
+        {
+            Destroy(other.gameObject);
+            _animator.runtimeAnimatorController = _cyanSkin;
+            StartCoroutine(ResyncAnimatorParams()); // Resincronizar parâmetros do Animator com atraso
+        }
+        if (other.gameObject.CompareTag("Clear"))
+        {
+            Destroy(other.gameObject);
+            _animator.runtimeAnimatorController = _defaultSkin;
+            StartCoroutine(ResyncAnimatorParams()); // Resincronizar parâmetros do Animator com atraso
+        }
+    }
 
-	private void ResyncAnimatorParams()
-	{
-		_animator.SetFloat("InputX", 0);
-		_animator.SetFloat("InputY", 0);
-		_animator.SetBool("isWalking", false);
-		_animator.SetFloat("LastInputX", 0);
-		_animator.SetFloat("LastInputY", 0);
-	}
+    private IEnumerator ResyncAnimatorParams()
+    {
+        yield return null; // Aguardando um frame para garantir que o Animator tenha atualizado o Controller
+
+        if (_playerMovement != null)
+        {
+            _animator.SetFloat("InputX", _playerMovement.lastInputX);
+            _animator.SetFloat("InputY", _playerMovement.lastInputY);
+            _animator.SetBool("isWalking", _playerMovement.isWalking);
+            _animator.SetFloat("LastInputX", _playerMovement.lastInputX);
+            _animator.SetFloat("LastInputY", _playerMovement.lastInputY);
+        }
+    }
 }
