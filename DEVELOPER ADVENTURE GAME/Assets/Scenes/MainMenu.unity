@@ -481,7 +481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &369100397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -914,7 +914,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -53, y: -28.3}
-  m_SizeDelta: {x: 100.8, y: 50}
+  m_SizeDelta: {x: 100.8, y: 49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &694379426
 MonoBehaviour:
@@ -1409,8 +1409,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: VOLTAR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: b246c4190f4e46ec9352fe15a7b09ce0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 08860a92f191390489eea33c8a48c2f5, type: 2}
+  m_sharedMaterial: {fileID: 3632566517384689067, guid: 08860a92f191390489eea33c8a48c2f5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2093,13 +2093,14 @@ GameObject:
   - component: {fileID: 1556188924}
   - component: {fileID: 1556188923}
   - component: {fileID: 1556188922}
+  - component: {fileID: 1556188926}
   m_Layer: 5
   m_Name: MenuOpcoes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1556188922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2185,6 +2186,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1556188926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556188921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580e35cdfa6961343975095edaae0a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolutionDropdown: {fileID: 1606388420}
 --- !u!1 &1606388418
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,7 +2238,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 13}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 160, y: 38.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1606388420
 MonoBehaviour:
@@ -2306,7 +2320,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: bcc58dfd7b83a084d9d3c1e6040126a1, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
