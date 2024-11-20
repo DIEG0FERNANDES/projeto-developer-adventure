@@ -6,41 +6,63 @@ public class LevelLoader : MonoBehaviour
 	public CoinManager coinManager;
 	public ConditionFailedMessage conditionFailedMessage;
 	public Animator doorAnimator;
+	public SignTrigger signTrigger;
 
 	private void Start()
 	{
-		if (coinManager == null)
+		if ( coinManager == null )
 		{
 			coinManager = FindObjectOfType<CoinManager>();
 		}
-		if (conditionFailedMessage == null)
+		if ( conditionFailedMessage == null )
 		{
 			conditionFailedMessage = FindObjectOfType<ConditionFailedMessage>();
 		}
-		if (doorAnimator == null)
+		if ( doorAnimator == null )
 		{
-			doorAnimator = GameObject.Find("door").GetComponent<Animator>();
+			doorAnimator = GameObject.Find( "door" ).GetComponent<Animator>();
+		}
+		if ( signTrigger == null )
+		{
+			signTrigger = FindObjectOfType<SignTrigger>();
 		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.CompareTag("Player"))
+		if ( other.CompareTag( "Player" ) )
 		{
-			if (gameObject.name == "LevelReset")
+			if ( gameObject.name == "LevelReset" )
 			{
 				conditionFailedMessage.ShowMessageAndRestart();
 			}
-			else if (gameObject.name == "LevelProgress")
+			else if ( gameObject.name == "LevelProgress" )
 			{
-				if (coinManager.GetCoinCount() != 2)
+				if ( signTrigger != null )
 				{
-					conditionFailedMessage.ShowMessageAndRestart();
+					ISignTrigger fase = signTrigger.faseScript as ISignTrigger;
+					if ( fase != null )
+					{
+						bool conditionMet = fase.EvaluateCondition( coinManager );
+						if ( conditionMet )
+						{
+							doorAnimator.SetTrigger( "door_opening" );
+						}
+						else
+						{
+							conditionFailedMessage.ShowMessageAndRestart();
+						}
+					}
+					else
+					{
+						Debug.LogError( "FaseScript não implementa ISignTrigger." );
+						conditionFailedMessage.ShowMessageAndRestart();
+					}
 				}
 				else
 				{
-					Debug.Log("Pronto para avançar para a próxima fase.");
-					doorAnimator.SetTrigger("door_opening");
+					Debug.LogError( "SignTrigger não atribuído ou não encontrado." );
+					conditionFailedMessage.ShowMessageAndRestart();
 				}
 			}
 		}

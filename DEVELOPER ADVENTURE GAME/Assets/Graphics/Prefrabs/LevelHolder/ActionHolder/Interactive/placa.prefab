@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4786367391088050850}
   - component: {fileID: 1529197774410317930}
   - component: {fileID: -1670976152376217583}
+  - component: {fileID: 7446275253961154550}
   m_Layer: 0
   m_Name: placa
   m_TagString: Untagged
@@ -130,3 +131,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1875, y: 0.8125}
   m_EdgeRadius: 0
+--- !u!114 &7446275253961154550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8543786433616463461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e863cfa2d0790bb4b81562bbcf40d181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText: {fileID: 0}
+  panel: {fileID: 0}
+  door: {fileID: 0}
+  cm: {fileID: 0}
