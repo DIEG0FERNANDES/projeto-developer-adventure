@@ -68,37 +68,37 @@ public class CoinCollectables : MonoBehaviour
         {
             Destroy(other.gameObject);
             _animator.runtimeAnimatorController = _greenSkin;
-            StartCoroutine(ResyncAnimatorParams()); // Resincronizar parâmetros do Animator com atraso
+            StartCoroutine(ResyncAnimatorParams()); 
         }
         if (other.gameObject.CompareTag("Minus"))
         {
             Destroy(other.gameObject);
             _animator.runtimeAnimatorController = _redSkin;
-            StartCoroutine(ResyncAnimatorParams()); // Resincronizar parâmetros do Animator com atraso
+            StartCoroutine(ResyncAnimatorParams()); 
         }
         if (other.gameObject.CompareTag("Multiply"))
         {
             Destroy(other.gameObject);
             _animator.runtimeAnimatorController = _magentaSkin;
-            StartCoroutine(ResyncAnimatorParams()); // Resincronizar parâmetros do Animator com atraso
+            StartCoroutine(ResyncAnimatorParams()); 
         }
         if (other.gameObject.CompareTag("Divide"))
         {
             Destroy(other.gameObject);
             _animator.runtimeAnimatorController = _cyanSkin;
-            StartCoroutine(ResyncAnimatorParams()); // Resincronizar parâmetros do Animator com atraso
+            StartCoroutine(ResyncAnimatorParams()); 
         }
         if (other.gameObject.CompareTag("Clear"))
         {
             Destroy(other.gameObject);
             _animator.runtimeAnimatorController = _defaultSkin;
-            StartCoroutine(ResyncAnimatorParams()); // Resincronizar parâmetros do Animator com atraso
+            StartCoroutine(ResyncAnimatorParams()); 
         }
     }
 
     private IEnumerator ResyncAnimatorParams()
     {
-        yield return null; // Aguardando um frame para garantir que o Animator tenha atualizado o Controller
+        yield return null; 
 
         if (_playerMovement != null)
         {

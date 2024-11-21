@@ -12,6 +12,7 @@ TagManager:
   - Multiply
   - Plus
   - Sign
+  - Computer
   layers:
   - Default
   - TransparentFX

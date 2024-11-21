@@ -1,44 +1,41 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 public class Door : MonoBehaviour
 {
-	[Header( "Referencia da cena a ser carregada na interação" )]
-#if UNITY_EDITOR
-	public SceneAsset sceneAsset;
-#endif
-	public string sceneName;
+	[Header( "Nome da cena a ser carregada" )]
+	[SerializeField] private string sceneName;
 
-	[Header( "Referencia do Text Mesh Pro que será exibido na tela" )]
-	public TextMeshProUGUI promptText;
+	[Header( "Referência do TextMeshPro que será exibido na tela" )]
+	[SerializeField] private TextMeshProUGUI promptText;
 
-	// Referencias as animações e aproximação na porta
 	private bool isNearDoor = false;
 	private Animator animator;
+	private Inputs inputs;
+
+	private void Awake()
+	{
+		inputs = new Inputs();
+	}
+
+	private void OnEnable()
+	{
+		inputs.Player.Interact.performed += OnInteract;
+		inputs.Enable();
+	}
+
+	private void OnDisable()
+	{
+		inputs.Player.Interact.performed -= OnInteract;
+		inputs.Disable();
+	}
 
 	private void Start()
 	{
-		if ( promptText != null )
-		{
-			promptText.gameObject.SetActive( false );
-		}
+		SetPromptTextVisibility( false );
 		animator = GetComponent<Animator>();
-	}
-
-	private void FixedUpdate()
-	{
-		if ( isNearDoor )
-		{
-			if ( Input.GetButtonDown( "Interact" ) )
-			{
-				OnInteract();
-			}
-		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
@@ -46,11 +43,8 @@ public class Door : MonoBehaviour
 		if ( other.CompareTag( "Player" ) )
 		{
 			isNearDoor = true;
-			if ( promptText != null )
-			{
-				UpdatePromptText();
-				promptText.gameObject.SetActive( true );
-			}
+			SetPromptTextVisibility( true );
+			UpdatePromptText( "Pressione C ou A (Gamepad)" );
 		}
 	}
 
@@ -59,49 +53,51 @@ public class Door : MonoBehaviour
 		if ( other.CompareTag( "Player" ) )
 		{
 			isNearDoor = false;
-			if ( promptText != null )
-			{
-				promptText.gameObject.SetActive( false );
-			}
+			SetPromptTextVisibility( false );
 		}
 	}
 
-	private void UpdatePromptText()
+	private void OnInteract(InputAction.CallbackContext context)
 	{
-		promptText.text = "Pressione C ou A (Gamepad)";
-	}
-
-	private void OnInteract()
-	{
-		Debug.Log( "Interact está funcionando" );
 		if ( isNearDoor )
 		{
 			LoadScene();
 		}
 	}
 
+	private void SetPromptTextVisibility(bool isVisible)
+	{
+		if ( promptText != null )
+		{
+			promptText.gameObject.SetActive( isVisible );
+		}
+	}
+
+	private void UpdatePromptText(string text)
+	{
+		if ( promptText != null )
+		{
+			promptText.text = text;
+		}
+	}
+
 	private void LoadScene()
 	{
-	#if UNITY_EDITOR
-		if ( sceneAsset != null )
+		if ( !string.IsNullOrEmpty( sceneName ) )
 		{
-			string scenePath = AssetDatabase.GetAssetPath( sceneAsset );
-			string sceneNFA = System.IO.Path.GetFileNameWithoutExtension( scenePath );
-			Debug.Log( "Carregando Cena no editor : sceneNFA" );
 			try
 			{
-				SceneManager.LoadScene( sceneNFA );
-				Debug.Log( "Cena Carregada" );
+				SceneManager.LoadScene( sceneName );
+				Debug.Log( $"Cena Carregada: {sceneName}" );
 			}
 			catch ( System.Exception e )
 			{
-				Debug.LogError( "Erro ao carregar cena: {e.Message}" );
+				Debug.LogError( $"Erro ao carregar cena: {e.Message}" );
 			}
 		}
 		else
 		{
-			Debug.LogError( "SceneAsset não atribuido" );
+			Debug.LogError( "Nome da Cena não atribuído" );
 		}
-	#endif
 	}
 }

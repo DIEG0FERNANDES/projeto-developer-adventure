@@ -9,7 +9,7 @@ public class PlayerSpawn : MonoBehaviour
 
 	void Start()
 	{
-		// Verifica se o objeto do jogador e o collider de spawn foram definidos
+		
 		if ( player != null && spawnArea != null )
 		{
 			SpawnPlayer();
@@ -22,15 +22,15 @@ public class PlayerSpawn : MonoBehaviour
 
 	void SpawnPlayer()
 	{
-		// Define a posição do jogador no centro do collider de spawn
+		
 		Vector3 spawnPosition = GetCenterPositionInCollider( spawnArea );
 		player.transform.position = spawnPosition;
 	}
 
 	Vector3 GetCenterPositionInCollider(Collider2D collider)
 	{
-		// Pega o centro do collider
+		
 		Vector3 center = collider.bounds.center;
-		return new Vector3( center.x, center.y, 0 ); // Z é definido como 0 pois estamos usando 2D
+		return new Vector3( center.x, center.y, 0 ); 
 	}
 }

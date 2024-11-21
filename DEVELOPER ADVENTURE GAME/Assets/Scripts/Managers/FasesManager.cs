@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class FasesManager : MonoBehaviour
 {
-	public GameObject[] phasePrefabs; // Arraste seus prefabs de fase aqui no Inspector
+	public GameObject[] phasePrefabs; 
 
 	private GameObject currentPhase;
 
 	private void Start()
 	{
-		LoadPhase(0); // Carrega a primeira fase (fase1)
+		LoadPhase(0); 
 	}
 
 	public void LoadPhase(int phaseIndex)
 	{
 		if (currentPhase != null)
 		{
-			Destroy(currentPhase); // Remove a fase atual
+			Destroy(currentPhase); 
 		}
 
 		if (phaseIndex < phasePrefabs.Length)
@@ -32,6 +32,6 @@ public class FasesManager : MonoBehaviour
 
 	public void CompletePhase(int nextPhaseIndex)
 	{
-		LoadPhase(nextPhaseIndex); // Carrega a próxima fase
+		LoadPhase(nextPhaseIndex);
 	}
 }

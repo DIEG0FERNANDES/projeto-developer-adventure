@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ConditionFailedMessage : MonoBehaviour
 {
-	public TextMeshProUGUI displayText; // Referência ao TextMeshProUGUI
-	public float delayBeforeRestart = 10f; // Delay antes de reiniciar a fase
+	public TextMeshProUGUI displayText; 
+	public float delayBeforeRestart = 10f; 
 
 	public void ShowMessageAndRestart()
 	{
@@ -18,6 +18,6 @@ public class ConditionFailedMessage : MonoBehaviour
 	private IEnumerator RestartAfterDelay()
 	{
 		yield return new WaitForSeconds( delayBeforeRestart );
-		SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex ); // Reinicia a cena atual
+		SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex );
 	}
 }

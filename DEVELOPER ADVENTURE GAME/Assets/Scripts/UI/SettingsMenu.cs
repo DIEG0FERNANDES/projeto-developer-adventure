@@ -96,6 +96,5 @@ public class SettingsMenu : MonoBehaviour
 	{
 		string selectedControl = controlesDropdown.options[controlIndex].text;
 		Debug.Log( $"Layout de controle definido para: {selectedControl}" );
-		// Aqui você pode adicionar lógica adicional para ativar o layout de controle apropriado
 	}
 }
